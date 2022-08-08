@@ -1,0 +1,357 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>分布式事务之深入理解什么是2PC、3PC及TCC协议？ | 轨 道 兔</title><meta name="keywords" content="分布式事务"><meta name="author" content="Jinyu"><meta name="copyright" content="Jinyu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="0.导读在上一篇文章《【分布式事务】基于RocketMQ搭建生产级消息集群？》中给大家介绍了基于RocketMQ如何搭建生产级消息集群。因为本系列文章最终的目的是介绍基于RocketMQ的事物消息来解决分布式系统中的数据一致性问题，所以先给大家率先介绍了RocketMQ消息集群的搭建。 原本是想着在这篇文章中直接介绍RocketMQ的事务消息特性，但是在梳理的过程中作者发现对于分布式事务的概念，可">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分布式事务之深入理解什么是2PC、3PC及TCC协议？">
+<meta property="og:url" content="http://jinyu.host/2020/07/12/1c5fbe93-aacc-40db-a4f5-b15f8baaba22/index.html">
+<meta property="og:site_name" content="轨 道 兔">
+<meta property="og:description" content="0.导读在上一篇文章《【分布式事务】基于RocketMQ搭建生产级消息集群？》中给大家介绍了基于RocketMQ如何搭建生产级消息集群。因为本系列文章最终的目的是介绍基于RocketMQ的事物消息来解决分布式系统中的数据一致性问题，所以先给大家率先介绍了RocketMQ消息集群的搭建。 原本是想着在这篇文章中直接介绍RocketMQ的事务消息特性，但是在梳理的过程中作者发现对于分布式事务的概念，可">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://rftpgtn4a.hb-bkt.clouddn.com/avatar.jpg">
+<meta property="article:published_time" content="2020-07-12T01:16:45.000Z">
+<meta property="article:modified_time" content="2020-07-12T01:16:45.000Z">
+<meta property="article:author" content="Jinyu">
+<meta property="article:tag" content="分布式事务">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://rftpgtn4a.hb-bkt.clouddn.com/avatar.jpg"><link rel="shortcut icon" href="http://rftpgtn4a.hb-bkt.clouddn.com/favicon.ico"><link rel="canonical" href="http://jinyu.host/2020/07/12/1c5fbe93-aacc-40db-a4f5-b15f8baaba22/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/pluginsSrc/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/pluginsSrc/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"自上次更新已过","messageNext":"天，文章内容可能已过时。"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#a67eb7","bgDark":"#1f1f1f","position":"top-left"},
+  source: {
+    justifiedGallery: {
+      js: '/pluginsSrc/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: '/pluginsSrc/flickr-justified-gallery/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '分布式事务之深入理解什么是2PC、3PC及TCC协议？',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-07-12 09:16:45'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="轨 道 兔" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="http://rftpgtn4a.hb-bkt.clouddn.com/avatar.jpg" onerror="onerror=null;src='http://rftpgtn4a.hb-bkt.clouddn.com/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">64</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 📖 文章</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><span> 📚 分类</span></a></li><li><a class="site-page child" href="/tags/"><span> 🏷️ 标签</span></a></li><li><a class="site-page child" href="/archives/"><span> 📦 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 🌟 生活</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/life/fitness/"><span> 🏋 健身</span></a></li><li><a class="site-page child" href="/life/gallery/"><span> 🌅 相册</span></a></li><li><a class="site-page child" href="/life/movies/"><span> 🎥 电影</span></a></li><li><a class="site-page child" href="/life/music/"><span> 🎵 音乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><span> 💖 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><span> 🎉 关于</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> ⚙️ 设置</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/setting/background/"><span> 背景</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://github.com/jinyu52370/hexo"><span> GitHub Repo</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://fontawesome.com/"><span> FontAwesome</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://portal.qiniu.com/kodo/bucket/resource-v2?bucketName=jinyu-hexo"><span> 七牛云 jinyu-hexo</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('http://rftpgtn4a.hb-bkt.clouddn.com/default.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">轨 道 兔</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><span>🔍 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 📖 文章</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><span> 📚 分类</span></a></li><li><a class="site-page child" href="/tags/"><span> 🏷️ 标签</span></a></li><li><a class="site-page child" href="/archives/"><span> 📦 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 🌟 生活</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/life/fitness/"><span> 🏋 健身</span></a></li><li><a class="site-page child" href="/life/gallery/"><span> 🌅 相册</span></a></li><li><a class="site-page child" href="/life/movies/"><span> 🎥 电影</span></a></li><li><a class="site-page child" href="/life/music/"><span> 🎵 音乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><span> 💖 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><span> 🎉 关于</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> ⚙️ 设置</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/setting/background/"><span> 背景</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://github.com/jinyu52370/hexo"><span> GitHub Repo</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://fontawesome.com/"><span> FontAwesome</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://portal.qiniu.com/kodo/bucket/resource-v2?bucketName=jinyu-hexo"><span> 七牛云 jinyu-hexo</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">分布式事务之深入理解什么是2PC、3PC及TCC协议？</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-07-12T01:16:45.000Z" title="发表于 2020-07-12 09:16:45">2020-07-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-07-12T01:16:45.000Z" title="更新于 2020-07-12 09:16:45">2020-07-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/">学习日志</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>13分钟</span></span><span class="post-meta-separator">|</span><span id="" data-flag-title="分布式事务之深入理解什么是2PC、3PC及TCC协议？"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="twikoo_visitors"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2020/07/12/1c5fbe93-aacc-40db-a4f5-b15f8baaba22/#post-comment"><span id="twikoo-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="0-导读"><a href="#0-导读" class="headerlink" title="0.导读"></a>0.导读</h2><p>在上一篇文章<a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzU3NDY4NzQwNQ==&mid=2247484461&idx=1&sn=72794d12ffe3c8ec3520fdba1c87c3b3&chksm=fd2fd5efca585cf955d240bbabd99b24262d255a3880454297f10a84e4c38445bc7b9d3ba339&scene=21#wechat_redirect">《【分布式事务】基于RocketMQ搭建生产级消息集群？》</a>中给大家介绍了基于RocketMQ如何搭建生产级消息集群。因为<strong>本系列文章最终的目的是介绍基于RocketMQ的事物消息来解决分布式系统中的数据一致性问题</strong>，所以先给大家率先介绍了RocketMQ消息集群的搭建。</p>
+<p>原本是想着在这篇文章中直接介绍RocketMQ的事务消息特性，但是在梳理的过程中作者发现对于<strong>分布式事务的概念</strong>，可能还会有很多同学不理解或者理解得不是很深刻的地方，而跳过这些基本概念直接去学习上层的实践可能并不是一件很好的事情，因此在这篇文章中，作者打算重点给大家先介绍下分布式事务相关的基本概念，诸如<strong>分布式事务、2PC、3PC、TCC</strong>之类的基本问题，之后再单独去介绍RocketMQ事务消息相关的实践。</p>
+<h2 id="1-数据库事务的概念"><a href="#1-数据库事务的概念" class="headerlink" title="1.数据库事务的概念"></a>1.数据库事务的概念</h2><p>在讲述分布式事务的概念之前，我们先来回顾下事务相关的一些概念。</p>
+<h3 id="1-1-事务的基本概念："><a href="#1-1-事务的基本概念：" class="headerlink" title="1.1.事务的基本概念："></a>1.1.事务的基本概念：</h3><p>就是一个<strong>程序执行单元，里面的操作要么全部执行成功，要么全部执行失败</strong>，不允许只成功一半另外一半执行失败的事情发生。例如一段事务代码做了两次数据库更新操作，那么这两次数据库操作要么全部执行成功，要么全部回滚。 </p>
+<h3 id="1-2-事务的基本特性："><a href="#1-2-事务的基本特性：" class="headerlink" title="1.2.事务的基本特性："></a>1.2.事务的基本特性：</h3><p>我们知道<strong>事务有4个非常重要的特性</strong>，即我们常说的（<strong>ACID</strong>）。</p>
+<ul>
+<li><strong>Atomicity（原子性）</strong>:是说事务是一个不可分割的整体，所有操作要么全做，要么全不做；只要事务中有一个操作出错，回滚到事务开始前的状态的话，那么之前已经执行的所有操作都是无效的，都应该回滚到开始前的状态。</li>
+<li><strong>Consistency（一致性）</strong>：是说事务执行前后，数据从一个状态到另一个状态必须是一致的，比如A向B转账（ A、B的总金额就是一个<strong>一致性状态</strong>），不可能出现A扣了钱，B却没收到的情况发生。</li>
+<li><strong>Isolation（隔离性）</strong>： 多个并发事务之间相互隔离，不能互相干扰。关于事务的隔离性，可能不是特别好理解，这里的并发事务是指两个事务操作了同一份数据的情况；而对于并发事务操作同一份数据的隔离性问题，则是要求不能出现<strong>脏读、幻读</strong>的情况，即事务A不能读取事务B还没有提交的数据，或者在事务A读取数据进行更新操作时，不允许事务B率先更新掉这条数据。而为了解决这个问题，常用的手段就是加锁了，对于数据库来说就是通过数据库的相关锁机制来保证。</li>
+<li><strong>Durablity（持久性）：</strong>事务完成后，对数据库的更改是永久保存的，不能回滚。</li>
+</ul>
+<p>关于数据库事务的基本概念大家可以去网上搜一下，这里只是给大家回顾下事务的基本概念及特性，诸如<strong>事务并发问题、事务隔离级别</strong>等大家如有遗忘可以去回顾下（<strong>tips：面试经常会问到的问题哦</strong>）。</p>
+<h3 id="1-3-什么是分布式事务？"><a href="#1-3-什么是分布式事务？" class="headerlink" title="1.3.什么是分布式事务？"></a>1.3.什么是分布式事务？</h3><p>以上内容我们回顾了下事务的基本概念，那么分布式事务又是个什么概念呢？它与数据库事务之间又有什么区别呢？</p>
+<p>其实分布式事务从实质上看与数据库事务的概念是一致的，既然是事务也就需要满足事务的基本特性（ACID），只是<strong>分布式事务相对于本地事务而言其表现形式有很大的不同</strong>。举个例子，在一个JVM进程中如果需要同时操作数据库的多条记录，而这些操作需要在一个事务中，那么我们可以通过数据库提供的事务机制（一般是数据库锁）来实现。</p>
+<p>而随着这个<strong>JVM进程（应用）被拆分成了微服务架构</strong>，原本一个本地逻辑执行单元被拆分到了多个独立的微服务中，这些微服务又分别操作不同的数据库和表，服务之间通过网络调用。</p>
+<p>举个例子：服务A收到一笔购物下单请求后，需要调用服务B去支付，支付成功则处理购物订单为待发货状态，否则就需要将购物订单处理为失败状态。（如图所示）</p>
+<p><img src="https://img2018.cnblogs.com/blog/1571688/201901/1571688-20190131104318915-553746250.png" alt="img"></p>
+<p>在上面这个例子中会不会出现服务B支付成功了，但是由于网络调用的问题没有通知到服务A，导致用户付了钱，但是购物订单无法显示支付成功的状态呢？</p>
+<p>答案是这种情况是普遍存在的，因为服务B在处理成功后需要向服务A发送网络请求，而这个过程是极有可能失败的。那么<strong>如何确保“服务A-&gt;服务B”这个过程能够组成一个事务，要么全部成功、要么全部失败呢</strong>？而这就是典型的需要通过分布式事务解决的问题。</p>
+<p><strong>分布式事务是为了解决微服务架构（形式都是分布式系统）中不同节点之间的数据一致性问题</strong>。这个一致性问题本质上解决的也是传统事务需要解决的问题，即<strong>一个请求在多个微服务调用链中，所有服务的数据处理要么全部成功，要么全部回滚</strong>。当然分布式事务问题的形式可能与传统事务会有比较大的差异，但是<strong>问题本质是一致的，都是要求解决数据的一致性问题。</strong></p>
+<p>而分布式事务的实现方式有很多种，最具有代表性的是由Oracle Tuxedo系统提出的XA分布式事务协议。XA协议包括两阶段提交（2PC）和三阶段提交（3PC）两种实现，接下来我们分别来介绍下这两种实现方式的原理。</p>
+<h4 id="1-3-1-两阶段提交（2PC）"><a href="#1-3-1-两阶段提交（2PC）" class="headerlink" title="1.3.1.两阶段提交（2PC）"></a>1.3.1.两阶段提交（2PC）</h4><p>两阶段提交又称<strong>2PC（two-phase commit protocol</strong>）,2pc是一个非常经典的<strong>强一致、中心化的原子提交协议</strong>。这里所说的中心化是指协议中有两类节点：一个是中心化<strong>协调者节点（coordinator）</strong>和<strong>N个参与者节点（partcipant）</strong>。</p>
+<p>下面我们就以一个尽量贴近实际业务场景的操作来举例：”假设在一个分布式架构的系统中事务的发起者通过<strong>分布式事务协调者</strong>（如RocketMQ，在早期RocketMQ版本不提供事务消息特性时，有些公司会自己研发一个基于MQ的<strong>可靠消息服务</strong>来实现一定的分布式事务的特性）分别向应用服务A、应用服务B发起处理请求，二者在处理的过程中会分别操作自身服务的数据库，现在要求<strong>应用服务A、应用服务B</strong>的数据处理操作要在一个事务里”?</p>
+<p>在上面这个例子中如果采用两阶段提交来实现分布式事务，那么其运行原理应该是个什么样的呢？（如?）：</p>
+<p><strong>第一阶段：请求&#x2F;表决阶段（点击放大）</strong></p>
+<p><img src="https://img2018.cnblogs.com/blog/1571688/201901/1571688-20190131104339032-11779109.png" alt="img"></p>
+<p>既然称为两阶段提交，说明在这个过程中是大致存在两个阶段的处理流程。第一个阶段如?图所示，这个阶段被称之为<strong>请求&#x2F;表决阶段</strong>。是个什么意思呢？</p>
+<p>就是在分布式事务的发起方在向分布式事务协调者（Coordinator）发送请求时，Coordinator首先会分别向参与者（Partcipant）节点A、参与这节点（Partcipant）节点B分别发送<strong>事务预处理请求</strong>，称之为<strong>Prepare</strong>，有些资料也叫”<strong>Vote Request</strong>“。</p>
+<p>说的直白点就是问一下这些参与节点”<strong>这件事你们能不能处理成功了</strong>“，此时这些参与者节点一般来说就会打开本地数据库事务，然后开始执行数据库本地事务，但在执行完成后并不会立马提交数据库本地事务，而是先向Coordinator报告说：“我这边可以处理了&#x2F;我这边不能处理”。</p>
+<p>如果所有的参与这节点都向协调者作了“<strong>Vote Commit</strong>”的反馈的话，那么此时流程就会进入第二个阶段了。</p>
+<p><strong>第二阶段：提交&#x2F;执行阶段（正常流程）</strong></p>
+<p><img src="https://img2018.cnblogs.com/blog/1571688/201901/1571688-20190131104351983-2132420111.png" alt="img"></p>
+<p>如果所有参与者节点都向协调者报告说“我这边可以处理”，那么此时协调者就会向所有参与者节点发送“<strong>全局提交确认通知（global_commit）</strong>”，即你们都可以进行本地事务提交了，此时参与者节点就会完成自身本地数据库事务的提交，并最终将提交结果回复“ack”消息给Coordinator，然后Coordinator就会向调用方返回分布式事务处理完成的结果。</p>
+<p><strong>第二阶段：提交&#x2F;执行阶段（异常流程）</strong></p>
+<p><img src="https://img2018.cnblogs.com/blog/1571688/201901/1571688-20190131104403512-2062315568.png" alt="img"></p>
+<p>相反，在二阶段除了所有的参与者节点都反馈“我这边可以处理了”的情况外，也会有节点反馈说“我这边不能处理”的情况发生，此时参与者节点就会向协调者节点反馈“<strong>Vote_Abort</strong>”的消息。此时<strong>分布式事务协调者节点</strong>就会向所有的参与者节点发起事务回滚的消息（“<strong>global_rollback</strong>”），此时各个参与者节点就会回滚本地事务，释放资源，并且向协调者节点发送“ack”确认消息，协调者节点就会向调用方返回分布式事务处理失败的结果。</p>
+<p>以上就是两阶段提交的基本过程了，那么<strong>按照这个两阶段提交协议，分布式系统的数据一致性问题就能得到满足吗</strong>？</p>
+<p>实际上<strong>分布式事务是一件非常复杂的事情</strong>，两阶段提交只是通过增加了事务协调者（Coordinator）的角色来通过2个阶段的处理流程来解决分布式系统中一个事务需要跨多个服务节点的数据一致性问题。但是从异常情况上考虑，<strong>这个流程也并不是那么的无懈可击</strong>。</p>
+<p>假设如果在第二个阶段中<strong>Coordinator</strong>在接收到<strong>Partcipant</strong>的**”Vote_Request”<strong>后挂掉了或者网络出现了异常，那么此时</strong>Partcipant节点就会一直处于本地事务挂起的状态，从而长时间地占用资源**。当然这种情况只会出现在极端情况下，然而作为一套健壮的软件系统而言，异常Case的处理才是真正考验方案正确性的地方。</p>
+<p><strong>以下几点是XA-两阶段提交协议中会遇到的一些问题：</strong></p>
+<ul>
+<li><p><strong>性能问题</strong>。从流程上我们可以看得出，其最大缺点就在于它的执行过程中间，节点都处于阻塞状态。各个操作数据库的节点此时都占用着数据库资源，只有当所有节点准备完毕，事务协调者才会通知进行全局提交，参与者进行本地事务提交后才会释放资源。这样的过程会比较漫长，对性能影响比较大。</p>
+</li>
+<li><p><strong>协调者单点故障问题</strong>。事务协调者是整个XA模型的核心，一旦事务协调者节点挂掉，会导致参与者收不到提交或回滚的通知，从而导致参与者节点始终处于事务无法完成的中间状态。</p>
+</li>
+<li><p><strong>丢失消息导致的数据不一致问题。</strong>在第二个阶段，如果发生局部网络问题，一部分事务参与者收到了提交消息，另一部分事务参与者没收到提交消息，那么就会导致节点间数据的不一致问题。</p>
+</li>
+</ul>
+<p><strong>既然两阶段提交有以上问题，那么有没有其他的方案来解决呢？</strong></p>
+<h4 id="1-3-2-三阶段提交（3PC）"><a href="#1-3-2-三阶段提交（3PC）" class="headerlink" title="1.3.2.三阶段提交（3PC）"></a>1.3.2.三阶段提交（3PC）</h4><p>三阶段提交又称<strong>3PC</strong>，其在两阶段提交的基础上<strong>增加了CanCommit阶段</strong>，并<strong>引入了超时机制</strong>。一旦事务参与者迟迟没有收到协调者的Commit请求，就会自动进行本地commit，这样相对有效地解决了协调者单点故障的问题。</p>
+<p>但是性能问题和不一致问题仍然没有根本解决。下面我们还是一起看下三阶段流程的是什么样的？</p>
+<p><strong>第一阶段：CanCommit阶段</strong></p>
+<p><img src="https://img2018.cnblogs.com/blog/1571688/201901/1571688-20190131104418199-1724881202.png" alt="img"></p>
+<p>这个阶段类似于2PC中的第二个阶段中的Ready阶段，是一种事务询问操作，事务的协调者向所有参与者询问“<strong>你们是否可以完成本次事务？</strong>”，如果参与者节点认为自身可以完成事务就返回“YES”，否则“NO”。而在实际的场景中参与者节点会对自身逻辑进行事务尝试，其实说白了就是检查下自身状态的健康性，看有没有能力进行事务操作。</p>
+<p><strong>第二阶段：PreCommit阶段</strong></p>
+<p><img src="https://img2018.cnblogs.com/blog/1571688/201901/1571688-20190131104428700-1603273927.png" alt="img"></p>
+<p>在阶段一中，如果所有的参与者都返回Yes的话，那么就会进入PreCommit阶段进行事务预提交。此时分布式事务协调者会向所有的参与者节点发送PreCommit请求，参与者收到后开始执行事务操作，并将Undo和Redo信息记录到事务日志中。参与者执行完事务操作后（此时属于未提交事务的状态），就会向协调者反馈“Ack”表示我已经准备好提交了，并等待协调者的下一步指令。</p>
+<p>否则，如果阶段一中有任何一个参与者节点返回的结果是No响应，或者协调者在等待参与者节点反馈的过程中超时（<strong>2PC中只有协调者可以超时，参与者没有超时机制）</strong>。整个分布式事务就会中断，协调者就会向所有的参与者发送<strong>“abort”</strong>请求。</p>
+<p><strong>第三阶段：DoCommit阶段</strong></p>
+<p><img src="https://img2018.cnblogs.com/blog/1571688/201901/1571688-20190131104441205-1327185276.png" alt="img"></p>
+<p>在阶段二中如果所有的参与者节点都可以进行PreCommit提交，那么协调者就会从<strong>“预提交状态”-》“提交状态”</strong>。然后向所有的参与者节点发送**”doCommit”<strong>请求，参与者节点在收到提交请求后就会各自执行事务提交操作，并向协调者节点反馈</strong>“Ack”**消息，协调者收到所有参与者的Ack消息后完成事务。</p>
+<p>相反，如果有一个参与者节点未完成PreCommit的反馈或者反馈超时，那么协调者都会向所有的参与者节点发送abort请求，从而中断事务。</p>
+<p>看到这里，你是不是会疑惑**”3PC相对于2PC而言到底优化了什么地方呢?”**</p>
+<p>相比较2PC而言，3PC对于协调者（<strong>Coordinator</strong>）和参与者（<strong>Partcipant</strong>）都设置了超时时间，而2PC只有协调者才拥有超时机制。这解决了一个什么问题呢？这个优化点，主要是避免了参与者在长时间无法与协调者节点通讯（协调者挂掉了）的情况下，无法释放资源的问题，因为参与者自身拥有超时机制会在超时后，自动进行本地commit从而进行释放资源。而这种机制也侧面降低了整个事务的阻塞时间和范围。</p>
+<p>另外，通过<strong>CanCommit、PreCommit、DoCommit</strong>三个阶段的设计，相较于2PC而言，多设置了一个<strong>缓冲阶段</strong>保证了在最后提交阶段之前各参与节点的状态是一致的。</p>
+<p>以上就是3PC相对于2PC的一个提高（相对缓解了2PC中的前两个问题），但是3PC依然没有完全解决数据不一致的问题。</p>
+<h4 id="1-3-3-补偿事务（TCC）"><a href="#1-3-3-补偿事务（TCC）" class="headerlink" title="1.3.3.补偿事务（TCC）"></a>1.3.3.补偿事务（TCC）</h4><p>说起分布式事务的概念，不少人都会搞混淆，似乎好像分布式事务就是TCC。实际上TCC与2PC、3PC一样，只是分布式事务的一种实现方案而已。</p>
+<p>TCC（<strong>Try-Confirm-Cancel</strong>）又称补偿事务。其核心思想是：”针对每个操作都要注册一个与其对应的确认和补偿（撤销操作）”。它分为三个操作：</p>
+<ul>
+<li><p>Try阶段：主要是对业务系统做检测及资源预留。</p>
+</li>
+<li><p>Confirm阶段：确认执行业务操作。</p>
+</li>
+<li><p>Cancel阶段：取消执行业务操作。</p>
+</li>
+</ul>
+<p>TCC事务的处理流程与2PC两阶段提交类似，不过2PC通常都是在跨库的DB层面，而TCC本质上就是一个应用层面的2PC，需要通过业务逻辑来实现。这种分布式事务的实现方式的优势在于，可以让<strong>应用自己定义数据库操作的粒度，使得降低锁冲突、提高吞吐量成为可能</strong>。</p>
+<p>而不足之处则在于对应用的侵入性非常强，业务逻辑的每个分支都需要实现try、confirm、cancel三个操作。此外，其实现难度也比较大，需要按照网络状态、系统故障等不同的失败原因实现不同的回滚策略。为了满足一致性的要求，confirm和cancel接口还必须实现幂等。</p>
+<p>TCC的具体原理图如?：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1571688/201901/1571688-20190131104456530-33046424.png" alt="img"></p>
+<h4 id="1-3-4-消息队列MQ事务"><a href="#1-3-4-消息队列MQ事务" class="headerlink" title="1.3.4.消息队列MQ事务"></a>1.3.4.消息队列MQ事务</h4><p>在前面介绍2PC、3PC的时候我们说没有根本解决性能问题，而如果通过MQ的事务消息来进行异步解耦，并实现系统的数据的最终一致性的话会不会好很多呢？实际上这就是我们下一篇文章要继续讲述的《分布式事务之如何基于RocketMQ的事务消息特性实现分布式系统的最终一致性？》。敬请期待！</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wudimanong/p/10340948.html" title="原文链接 https://www.cnblogs.com/wudimanong/p/10340948.html">原文链接 https://www.cnblogs.com/wudimanong/p/10340948.html</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://jinyu.host">Jinyu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://jinyu.host/2020/07/12/1c5fbe93-aacc-40db-a4f5-b15f8baaba22/">http://jinyu.host/2020/07/12/1c5fbe93-aacc-40db-a4f5-b15f8baaba22/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://jinyu.host" target="_blank">轨 道 兔</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/">分布式事务</a></div><div class="post_share"><div class="social-share" data-image="http://rftpgtn4a.hb-bkt.clouddn.com/avatar.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/pluginsSrc/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="/pluginsSrc/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/07/17/dfac4456-1ebd-439b-a266-e0b6b695a1d2/"><img class="prev-cover" src="http://rftpgtn4a.hb-bkt.clouddn.com/default.png" onerror="onerror=null;src='http://rftpgtn4a.hb-bkt.clouddn.com/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">windows系统如何查看端口被占用、杀进程</div></div></a></div><div class="next-post pull-right"><a href="/2020/07/12/b9eb422e-ff4e-4104-8a0f-1c35a4d1f922/"><img class="next-cover" src="http://rftpgtn4a.hb-bkt.clouddn.com/default.png" onerror="onerror=null;src='http://rftpgtn4a.hb-bkt.clouddn.com/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">GC分代年龄为什么是15？</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="http://rftpgtn4a.hb-bkt.clouddn.com/avatar.jpg" onerror="this.onerror=null;this.src='http://rftpgtn4a.hb-bkt.clouddn.com/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Jinyu</div><div class="author-info__description">回去吧，Colin，我并没有拯救你的人生，我只是拥抱了你的孤独。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">64</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-%E5%AF%BC%E8%AF%BB"><span class="toc-number">1.</span> <span class="toc-text">0.导读</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">2.</span> <span class="toc-text">1.数据库事务的概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E4%BA%8B%E5%8A%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%EF%BC%9A"><span class="toc-number">2.1.</span> <span class="toc-text">1.1.事务的基本概念：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E4%BA%8B%E5%8A%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%89%B9%E6%80%A7%EF%BC%9A"><span class="toc-number">2.2.</span> <span class="toc-text">1.2.事务的基本特性：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%EF%BC%9F"><span class="toc-number">2.3.</span> <span class="toc-text">1.3.什么是分布式事务？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-1-%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%8F%90%E4%BA%A4%EF%BC%882PC%EF%BC%89"><span class="toc-number">2.3.1.</span> <span class="toc-text">1.3.1.两阶段提交（2PC）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-2-%E4%B8%89%E9%98%B6%E6%AE%B5%E6%8F%90%E4%BA%A4%EF%BC%883PC%EF%BC%89"><span class="toc-number">2.3.2.</span> <span class="toc-text">1.3.2.三阶段提交（3PC）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-3-%E8%A1%A5%E5%81%BF%E4%BA%8B%E5%8A%A1%EF%BC%88TCC%EF%BC%89"><span class="toc-number">2.3.3.</span> <span class="toc-text">1.3.3.补偿事务（TCC）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-4-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97MQ%E4%BA%8B%E5%8A%A1"><span class="toc-number">2.3.4.</span> <span class="toc-text">1.3.4.消息队列MQ事务</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/09/06/23579483-7206-449c-aa75-14d135b74afd/" title="并发编程锁之ReentrantLock总结">并发编程锁之ReentrantLock总结</a><time datetime="2020-09-06T03:47:22.000Z" title="发表于 2020-09-06 11:47:22">2020-09-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/09/02/afd8c681-d4f8-4655-bafa-4a958d92d4df/" title="并发编程锁之synchronized总结">并发编程锁之synchronized总结</a><time datetime="2020-09-01T23:03:02.000Z" title="发表于 2020-09-02 07:03:02">2020-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/08/29/22b43cc2-387b-4368-9c70-50044bac3d50/" title="Windows部署minio注册成服务在后台保持运行">Windows部署minio注册成服务在后台保持运行</a><time datetime="2020-08-29T00:23:16.000Z" title="发表于 2020-08-29 08:23:16">2020-08-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/08/29/3da6888a-b6ff-4cc7-a3cf-e40efbb943d5/" title="The username you provided is not allowed to use the text-based Tomcat Manager (error 403)">The username you provided is not allowed to use the text-based Tomcat Manager (error 403)</a><time datetime="2020-08-29T00:16:49.000Z" title="发表于 2020-08-29 08:16:49">2020-08-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/08/29/c49478bb-79a0-4a4c-91b4-fca9116bdfcd/" title="Build step 'Invoke top-level Maven targets' marked build as failure Finished">Build step 'Invoke top-level Maven targets' marked build as failure Finished</a><time datetime="2020-08-29T00:03:11.000Z" title="发表于 2020-08-29 08:03:11">2020-08-29</time></div></div></div></div></div></div></main><footer id="footer" style="background: rgba(0,0,0,0.3)"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Jinyu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=61011302001050" style="color: white"> <img src="http://rftpgtn4a.hb-bkt.clouddn.com/备案图标.png" style="height: 17px;width: 17px;margin-bottom: -3px" /> 陕公网安备61011302001050号</a>|<a href="http://beian.miit.gov.cn/" target="_blank" style="color: white" >陕ICP备2020013416号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="/pluginsSrc/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="/pluginsSrc/instant.page/instantpage.js" type="module"></script><script src="/pluginsSrc/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>(()=>{
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://my-twikoo-psi.vercel.app/',
+      region: '',
+      onCommentLoaded: function () {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://my-twikoo-psi.vercel.app/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      countELement.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const runFn = () => {
+    init()
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') {
+      setTimeout(runFn,0)
+      return
+    } 
+    getScript('/pluginsSrc/twikoo/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><div class="aplayer no-destroy" data-id="496830162" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false" data-lrctype="0" data-listmaxheight="500px"> </div><script async data-pjax src="/js/custom/jinyu.js"></script><link rel="stylesheet" href="/pluginsSrc/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="/pluginsSrc/aplayer/dist/APlayer.min.js"></script><script src="/pluginsSrc/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="/pluginsSrc/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
