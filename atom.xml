@@ -536,9 +536,9 @@
     <category term="学习日志" scheme="http://jinyu.host/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
     
     
-    <category term="正则表达式" scheme="http://jinyu.host/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    
     <category term="Java" scheme="http://jinyu.host/tags/Java/"/>
+    
+    <category term="正则表达式" scheme="http://jinyu.host/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     
   </entry>
   
