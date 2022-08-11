@@ -177,33 +177,6 @@
     
     <entry>
       <title>vim永久显示行号</title>
-      <link href="/2020/08/28/0e1e102c-4c8e-429a-a988-ebad49445a55/"/>
-      <url>/2020/08/28/0e1e102c-4c8e-429a-a988-ebad49445a55/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>编辑vim个人配置</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.vimrc</span><br></pre></td></tr></table></figure><p>添加<code>set nu</code>，保存退出</p><p><a href="https://blog.csdn.net/ouyang_peng/article/details/83379407" title="原文链接 https://blog.csdn.net/ouyang_peng/article/details/83379407">原文链接 https://blog.csdn.net/ouyang_peng&#x2F;article&#x2F;details&#x2F;83379407</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 学习日志 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Linux </tag>
-            
-            <tag> vim </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>vim永久显示行号</title>
       <link href="/2020/08/28/44145d69-cff6-4517-adcc-a1e206614c4f/"/>
       <url>/2020/08/28/44145d69-cff6-4517-adcc-a1e206614c4f/</url>
       
@@ -836,9 +809,9 @@
             
             <tag> Linux </tag>
             
-            <tag> zsh </tag>
-            
             <tag> Proxy </tag>
+            
+            <tag> zsh </tag>
             
         </tags>
       
@@ -1403,9 +1376,9 @@
             
             <tag> CentOS7 </tag>
             
-            <tag> Redis </tag>
-            
             <tag> VMware </tag>
+            
+            <tag> Redis </tag>
             
         </tags>
       

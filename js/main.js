@@ -55,7 +55,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const scrollDownInIndex = () => {
     const $scrollDownEle = document.getElementById('scroll-down')
     $scrollDownEle && $scrollDownEle.addEventListener('click', function () {
-      btf.scrollToDest(document.getElementById('content-inner').offsetTop, 300)
+      //jinyu:主页头图下方的箭头点击后的高度
+      // btf.scrollToDest(document.getElementById('content-inner').offsetTop, 300)
+      btf.scrollToDest(document.getElementById('content-inner').offsetTop - 35, 300)
     })
   }
 
@@ -146,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
       this.classList.toggle('expand-done')
     }
 
-    function createEle (lang, item, service) {
+    function createEle(lang, item, service) {
       const fragment = document.createDocumentFragment()
 
       if (isShowTool) {
@@ -205,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function () {
   /**
    * PhotoFigcaption
    */
-  function addPhotoFigcaption () {
+  function addPhotoFigcaption() {
     document.querySelectorAll('#article-container img').forEach(function (item) {
       const parentEle = item.parentNode
       const altValue = item.title || item.alt
@@ -265,7 +267,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // find the scroll direction
-    function scrollDirection (currentTop) {
+    function scrollDirection(currentTop) {
       const result = currentTop > initTop // true is down & false is up
       initTop = currentTop
       return result
@@ -298,7 +300,9 @@ document.addEventListener('DOMContentLoaded', function () {
           }
           $header.classList.add('nav-fixed')
           if (window.getComputedStyle($rightside).getPropertyValue('opacity') === '0') {
-            $rightside.style.cssText = 'opacity: 0.8; transform: translateX(-58px)'
+            //jinyu:右下角设置、回到顶部按钮透明度修改为1
+            // $rightside.style.cssText = 'opacity: 0.8; transform: translateX(-58px)'
+            $rightside.style.cssText = 'opacity: 1; transform: translateX(-58px)'
           }
         } else {
           if (currentTop === 0) {
@@ -308,7 +312,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         if (document.body.scrollHeight <= innerHeight) {
-          $rightside.style.cssText = 'opacity: 0.8; transform: translateX(-58px)'
+          //jinyu:右下角设置、回到顶部按钮透明度修改为1
+          // $rightside.style.cssText = 'opacity: 0.8; transform: translateX(-58px)'
+          $rightside.style.cssText = 'opacity: 0.1; transform: translateX(-58px)'
         }
       }, 200)()
     }
@@ -456,7 +462,7 @@ document.addEventListener('DOMContentLoaded', function () {
       newEle.className = 'fas fa-sign-out-alt exit-readmode'
       $body.appendChild(newEle)
 
-      function clickFn () {
+      function clickFn() {
         $body.classList.remove('read-mode')
         newEle.remove()
         newEle.removeEventListener('click', clickFn)
@@ -557,10 +563,10 @@ document.addEventListener('DOMContentLoaded', function () {
       let textFont; const copyFont = window.getSelection(0).toString()
       if (copyFont.length > copyright.limitCount) {
         textFont = copyFont + '\n' + '\n' + '\n' +
-        copyright.languages.author + '\n' +
-        copyright.languages.link + window.location.href + '\n' +
-        copyright.languages.source + '\n' +
-        copyright.languages.info
+          copyright.languages.author + '\n' +
+          copyright.languages.link + window.location.href + '\n' +
+          copyright.languages.source + '\n' +
+          copyright.languages.info
       } else {
         textFont = copyFont
       }

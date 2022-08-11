@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>轨 道 兔</title>
   
-  <subtitle>风流云散 一别如雨 人生实难 愿其弗与</subtitle>
+  <subtitle>为我自己，为友与仇，人与兽，爱者与不爱者，&lt;br&gt;我希望这野草的朽腐，火速到来。</subtitle>
   <link href="http://jinyu.host/atom.xml" rel="self"/>
   
   <link href="http://jinyu.host/"/>
@@ -179,32 +179,6 @@
     <category term="Linux" scheme="http://jinyu.host/tags/Linux/"/>
     
     <category term="Jenkins" scheme="http://jinyu.host/tags/Jenkins/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vim永久显示行号</title>
-    <link href="http://jinyu.host/2020/08/28/0e1e102c-4c8e-429a-a988-ebad49445a55/"/>
-    <id>http://jinyu.host/2020/08/28/0e1e102c-4c8e-429a-a988-ebad49445a55/</id>
-    <published>2020-08-28T03:44:55.000Z</published>
-    <updated>2020-08-28T03:44:55.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>编辑vim个人配置</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.vimrc</span><br></pre></td></tr></table></figure><p>添加<code>set nu</code>，保存退出</p><p><a href="https://blog.csdn.net/ouyang_peng/article/details/83379407" title="原文链接 https://blog.csdn.net/ouyang_peng/article/details/83379407">原文链接 https://blog.csdn.net/ouyang_peng&#x2F;article&#x2F;details&#x2F;83379407</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
-      
-    
-    
-    
-    <category term="学习日志" scheme="http://jinyu.host/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
-    
-    
-    <category term="Linux" scheme="http://jinyu.host/tags/Linux/"/>
-    
-    <category term="vim" scheme="http://jinyu.host/tags/vim/"/>
     
   </entry>
   
@@ -539,6 +513,34 @@
     <category term="Java" scheme="http://jinyu.host/tags/Java/"/>
     
     <category term="正则表达式" scheme="http://jinyu.host/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Springboot 全局日期格式化，只需要几行小代码</title>
+    <link href="http://jinyu.host/2020/08/08/4a8f11b1-081b-4d00-84f1-43b06501940a/"/>
+    <id>http://jinyu.host/2020/08/08/4a8f11b1-081b-4d00-84f1-43b06501940a/</id>
+    <published>2020-08-08T01:51:12.000Z</published>
+    <updated>2020-08-08T01:51:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><p>数据库时间字段的类型：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">createTimedatetime</span><br><span class="line">updateTimedatetime</span><br></pre></td></tr></table></figure><p>实体类时间字段类型：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Date createTime;</span><br><span class="line"><span class="keyword">private</span> Date updateTime;</span><br></pre></td></tr></table></figure><p>从数据库中查询返回的数据：</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;create_time&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2020-08-08T09:27:07.000+08:00&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;update_time&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2020-08-08T09:27:09.000+08:00&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure><p>希望得到的数据：</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line"><span class="attr">&quot;create_time&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2020-08-08 09:27:07&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;update_time&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2020-08-08 09:27:09&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ol><li><p>取出字段进行格式转换：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DateTimeFormatter</span><br><span class="line">SimpleDateFormat</span><br></pre></td></tr></table></figure></li><li><p>使用格式化注解进行转换：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@JsonFormat(locale = &quot;zh&quot;, timezone = &quot;GMT+8&quot;, pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;)</span> </span><br></pre></td></tr></table></figure></li><li><p>在数据库sql语句动手脚进行格式转换</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT DATE_FORMAT(createTime,&quot;%Y-%m-%d %H:%i:%s&quot;)</span><br></pre></td></tr></table></figure></li></ol><h2 id="简单直接的方案"><a href="#简单直接的方案" class="headerlink" title="简单直接的方案"></a>简单直接的方案</h2><p>在<code>application.yml</code>上 加上四行配置项代码即可：</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">jackson:</span></span><br><span class="line">    <span class="comment">#时区，默认为格林尼治时间，即少8小时，所以我们需要+8</span></span><br><span class="line">    <span class="attr">time-zone:</span> <span class="string">GMT+8</span></span><br><span class="line">    <span class="comment">#时间格式转换定义</span></span><br><span class="line">    <span class="attr">date-format:</span> <span class="string">yyyy-MM-dd</span> <span class="string">HH:mm:ss</span></span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/qq_35387940/article/details/107249735" title="原文链接 https://blog.csdn.net/qq_35387940/article/details/107249735">原文链接 https://blog.csdn.net/qq_35387940&#x2F;article&#x2F;details&#x2F;107249735</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    <category term="学习日志" scheme="http://jinyu.host/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
+    
+    
+    <category term="Java" scheme="http://jinyu.host/tags/Java/"/>
+    
+    <category term="SpringBoot" scheme="http://jinyu.host/tags/SpringBoot/"/>
+    
+    <category term="yml" scheme="http://jinyu.host/tags/yml/"/>
     
   </entry>
   
