@@ -512,9 +512,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> 正则表达式 </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
@@ -703,9 +703,9 @@
       
         <tags>
             
-            <tag> Windows </tag>
-            
             <tag> VMware </tag>
+            
+            <tag> Windows </tag>
             
         </tags>
       
@@ -809,9 +809,9 @@
             
             <tag> Linux </tag>
             
-            <tag> zsh </tag>
-            
             <tag> Proxy </tag>
+            
+            <tag> zsh </tag>
             
         </tags>
       
@@ -1181,9 +1181,9 @@
       
         <tags>
             
-            <tag> Windows </tag>
-            
             <tag> VMware </tag>
+            
+            <tag> Windows </tag>
             
             <tag> .bat </tag>
             
@@ -1374,9 +1374,9 @@
             
             <tag> Linux </tag>
             
-            <tag> CentOS7 </tag>
-            
             <tag> Redis </tag>
+            
+            <tag> CentOS7 </tag>
             
             <tag> VMware </tag>
             
