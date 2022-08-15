@@ -3269,16 +3269,7 @@ h1.page-title + .tag-cloud-list {
   height: 60px;
   background: 0;
 }
-#page-header.not-top-img #nav {
-  background: rgba(255,255,255,0.8);
-  -webkit-box-shadow: 0 5px 6px -5px rgba(133,133,133,0.6);
-  box-shadow: 0 5px 6px -5px rgba(133,133,133,0.6);
-}
-#page-header.not-top-img #nav a {
-  color: var(--font-color);
-  text-shadow: none;
-}
-#page-header.nav-fixed #nav {
+.nav-fixed #nav {
   position: fixed;
 /* top: -60px */
   z-index: 91;
@@ -3288,15 +3279,15 @@ h1.page-title + .tag-cloud-list {
   box-shadow: 0 5px 6px -5px rgba(133,133,133,0.6);
 /* transition: transform .2s ease-in-out, opacity .2s ease-in-out */
 }
-#page-header.nav-fixed #nav a,
-#page-header.nav-fixed #nav #site-name,
-#page-header.nav-fixed #nav #toggle-menu {
+.nav-fixed #nav a,
+.nav-fixed #nav #site-name,
+.nav-fixed #nav #toggle-menu {
 /* color: var(--font-color) */
   text-shadow: none;
 }
-#page-header.nav-fixed #nav a:hover,
-#page-header.nav-fixed #nav #site-name:hover,
-#page-header.nav-fixed #nav #toggle-menu:hover {
+.nav-fixed #nav a:hover,
+.nav-fixed #nav #site-name:hover,
+.nav-fixed #nav #toggle-menu:hover {
   color: #2e59a7;
 }
 #page h1.page-title {

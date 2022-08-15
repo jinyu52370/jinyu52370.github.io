@@ -28,3 +28,24 @@ if (window.location.pathname === "/link/") {
     // document.querySelector('.layout.hide-aside').style.setProperty("max-width", "initial");
     document.querySelector('.layout.hide-aside').style.setProperty("max-width", "1650px");
 }
+
+var a = window.location.pathname;
+switch (a) {
+    case "/categories/":
+    case "/tags/": {
+        // document.querySelector(".page-title").style.textAlign = "center"
+        break;
+    }
+    case "/message/": {
+        document.querySelector("#page").style.textAlign = "center"
+        break;
+    }
+    case "/about/":
+    case "/link/": {
+        document.querySelector(".page-title").remove();
+        break;
+    }
+    default: {
+
+    }
+}
