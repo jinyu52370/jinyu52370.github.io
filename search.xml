@@ -609,9 +609,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> 正则表达式 </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
@@ -751,31 +751,6 @@
             <tag> CentOS7 </tag>
             
             <tag> gnome </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>/usr/lib64/libstdc++.so.6: version `GLIBCXX_3.4.14&#39; not found</title>
-      <link href="/2020/08/05/0e37680e-b61a-4080-9cda-366518708bab/"/>
-      <url>/2020/08/05/0e37680e-b61a-4080-9cda-366518708bab/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>1.查看gcc版本中包含哪些库</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings /usr/lib64/libstdc++.so.6 | grep GLIBC</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">GLIBCXX_3.4</span><br><span class="line">GLIBCXX_3.4.1</span><br><span class="line">GLIBCXX_3.4.2</span><br><span class="line">GLIBCXX_3.4.3</span><br><span class="line">GLIBCXX_3.4.4</span><br><span class="line">GLIBCXX_3.4.5</span><br><span class="line">GLIBCXX_3.4.6</span><br><span class="line">GLIBCXX_3.4.7</span><br><span class="line">GLIBCXX_3.4.8</span><br><span class="line">GLIBCXX_3.4.9</span><br><span class="line">GLIBCXX_3.4.10</span><br><span class="line">GLIBCXX_3.4.11</span><br><span class="line">GLIBCXX_3.4.12</span><br><span class="line">GLIBCXX_3.4.13</span><br><span class="line">GLIBC_2.2.5</span><br><span class="line">GLIBC_2.3</span><br><span class="line">GLIBC_2.4</span><br><span class="line">GLIBC_2.3.2</span><br><span class="line">GLIBCXX_FORCE_NEW</span><br><span class="line">GLIBCXX_DEBUG_MESSAGE_LENGTH</span><br></pre></td></tr></table></figure><p>可以看出不包含GLIBCXX_3.4.14</p><p>2.从网上下载高版本的libstdc++.so.6.0.13以上的版本，比如libstdc++.so.6.0.17</p><p>3.把libstdc++.so.6.0.17拷贝到/usr/lib64目录下</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp libstdc++.so.6.0.17 /usr/lib64/</span><br></pre></td></tr></table></figure><p>4.删除libstdc++.so.6符号连接。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm libstdc++.so.6</span><br></pre></td></tr></table></figure><p>5.新建里符号连接。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s libstdc++.so.6.0.17 libstdc++.so.6</span><br></pre></td></tr></table></figure><p>6.再次查看就没有问题了。</p><p><a href="https://www.cnblogs.com/kumufengchun/p/10455537.html" title="原文链接 https://www.cnblogs.com/kumufengchun/p/10455537.html">原文链接 https://www.cnblogs.com/kumufengchun/p/10455537.html</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 错误日志 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Linux </tag>
             
         </tags>
       
@@ -1562,24 +1537,30 @@
     
     <entry>
       <title>Linux启动tomcat并查看启动日志</title>
-      <link href="/2020/07/04/d02737f5-f830-403a-be92-05fe257f4a7e/"/>
-      <url>/2020/07/04/d02737f5-f830-403a-be92-05fe257f4a7e/</url>
+      <link href="/2020/07/04/Linux%E5%90%AF%E5%8A%A8tomcat%E5%B9%B6%E6%9F%A5%E7%9C%8B%E5%90%AF%E5%8A%A8%E6%97%A5%E5%BF%97/"/>
+      <url>/2020/07/04/Linux%E5%90%AF%E5%8A%A8tomcat%E5%B9%B6%E6%9F%A5%E7%9C%8B%E5%90%AF%E5%8A%A8%E6%97%A5%E5%BF%97/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="1-在tomcat的bin目录下输入"><a href="#1-在tomcat的bin目录下输入" class="headerlink" title="1.在tomcat的bin目录下输入"></a>1.在tomcat的bin目录下输入</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./startup.sh; tailf ../logs/catalina.out</span><br><span class="line">或</span><br><span class="line">./startup.sh &amp;&amp; tail -f ../logs/catalina.out</span><br></pre></td></tr></table></figure><h2 id="2-进入-tomcat的日志目录"><a href="#2-进入-tomcat的日志目录" class="headerlink" title="2.进入 tomcat的日志目录"></a>2.进入 tomcat的日志目录</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd/tomcat/logs</span><br><span class="line">tail -f catalina.out</span><br></pre></td></tr></table></figure><p>tail 命令可用于查看文件的内容，常用参数 -f 用于查阅正在改变的日志文件。</p><p>tail -f filename 会把 filename 文件里的最尾部的内容显示在屏幕上，并且不断刷新，(Ctrl-C)组合键停止显示，只要 filename 更新就可以看到最新的文件内容。</p><p><a href="https://blog.csdn.net/qq_42324086/article/details/99860343" title="原文链接：https://blog.csdn.net/qq_42324086/article/details/99860343">原文链接 https://blog.csdn.net/qq_42324086/article/details/99860343</a></p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="tip "><p>版权声明：本文为CSDN博主「暗恋花香」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/qq_42324086/article/details/99860343">https://blog.csdn.net/qq_42324086/article/details/99860343</a></p></div><h1 id="在tomcat的bin目录下输入"><a href="#在tomcat的bin目录下输入" class="headerlink" title="在tomcat的bin目录下输入"></a>在tomcat的bin目录下输入</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./startup.sh; tailf ../logs/catalina.out</span><br><span class="line">或</span><br><span class="line">./startup.sh &amp;&amp; tail -f ../logs/catalina.out</span><br></pre></td></tr></table></figure><h1 id="进入-tomcat的日志目录"><a href="#进入-tomcat的日志目录" class="headerlink" title="进入 tomcat的日志目录"></a>进入 tomcat的日志目录</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /tomcat/logs</span><br><span class="line">tail -f catalina.out</span><br></pre></td></tr></table></figure><p>tail 命令可用于查看文件的内容，常用参数 -f 用于查阅正在改变的日志文件。</p><p>tail -f filename 会把 filename 文件里的最尾部的内容显示在屏幕上，并且不断刷新，(Ctrl-C)组合键停止显示，只要 filename 更新就可以看到最新的文件内容。</p>]]></content>
       
       
       <categories>
           
-          <category> 学习日志 </category>
+          <category> web应用服务器 </category>
+          
+          <category> Tomcat </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Tomcat </tag>
+            
+            <tag> 转载 </tag>
+            
+            <tag> linux </tag>
+            
+            <tag> web应用服务器 </tag>
             
         </tags>
       

@@ -3,11 +3,11 @@
   <title>轨 道 兔</title>
   
   <subtitle>为我自己，为友与仇，人与兽，爱者与不爱者，&lt;br&gt;我希望这野草的朽腐，火速到来。</subtitle>
-  <link href="http://jinyu.host/atom.xml" rel="self"/>
+  <link href="https://jinyu.host/atom.xml" rel="self"/>
   
-  <link href="http://jinyu.host/"/>
+  <link href="https://jinyu.host/"/>
   <updated>2022-08-16T04:30:17.000Z</updated>
-  <id>http://jinyu.host/</id>
+  <id>https://jinyu.host/</id>
   
   <author>
     <name>今愚</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>CRON表达式</title>
-    <link href="http://jinyu.host/2022/08/16/CRON%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    <id>http://jinyu.host/2022/08/16/CRON%E8%A1%A8%E8%BE%BE%E5%BC%8F/</id>
+    <link href="https://jinyu.host/2022/08/16/CRON%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <id>https://jinyu.host/2022/08/16/CRON%E8%A1%A8%E8%BE%BE%E5%BC%8F/</id>
     <published>2022-08-16T04:30:17.000Z</published>
     <updated>2022-08-16T04:30:17.000Z</updated>
     
@@ -33,19 +33,19 @@
     
     
     
-    <category term="编程" scheme="http://jinyu.host/categories/%E7%BC%96%E7%A8%8B/"/>
+    <category term="编程" scheme="https://jinyu.host/categories/%E7%BC%96%E7%A8%8B/"/>
     
-    <category term="基础知识" scheme="http://jinyu.host/categories/%E7%BC%96%E7%A8%8B/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    <category term="基础知识" scheme="https://jinyu.host/categories/%E7%BC%96%E7%A8%8B/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
     
     
-    <category term="编程" scheme="http://jinyu.host/tags/%E7%BC%96%E7%A8%8B/"/>
+    <category term="编程" scheme="https://jinyu.host/tags/%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title>IntelliJ IDEA快捷键</title>
-    <link href="http://jinyu.host/2022/08/16/IntelliJ%20IDEA%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-    <id>http://jinyu.host/2022/08/16/IntelliJ%20IDEA%E5%BF%AB%E6%8D%B7%E9%94%AE/</id>
+    <link href="https://jinyu.host/2022/08/16/IntelliJ%20IDEA%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <id>https://jinyu.host/2022/08/16/IntelliJ%20IDEA%E5%BF%AB%E6%8D%B7%E9%94%AE/</id>
     <published>2022-08-16T04:08:02.000Z</published>
     <updated>2022-08-16T04:08:02.000Z</updated>
     
@@ -59,25 +59,25 @@
     
     
     
-    <category term="编程" scheme="http://jinyu.host/categories/%E7%BC%96%E7%A8%8B/"/>
+    <category term="编程" scheme="https://jinyu.host/categories/%E7%BC%96%E7%A8%8B/"/>
     
-    <category term="Java" scheme="http://jinyu.host/categories/%E7%BC%96%E7%A8%8B/Java/"/>
+    <category term="Java" scheme="https://jinyu.host/categories/%E7%BC%96%E7%A8%8B/Java/"/>
     
-    <category term="IDE" scheme="http://jinyu.host/categories/%E7%BC%96%E7%A8%8B/Java/IDE/"/>
+    <category term="IDE" scheme="https://jinyu.host/categories/%E7%BC%96%E7%A8%8B/Java/IDE/"/>
     
     
-    <category term="Java" scheme="http://jinyu.host/tags/Java/"/>
+    <category term="Java" scheme="https://jinyu.host/tags/Java/"/>
     
-    <category term="编程" scheme="http://jinyu.host/tags/%E7%BC%96%E7%A8%8B/"/>
+    <category term="编程" scheme="https://jinyu.host/tags/%E7%BC%96%E7%A8%8B/"/>
     
-    <category term="IDE" scheme="http://jinyu.host/tags/IDE/"/>
+    <category term="IDE" scheme="https://jinyu.host/tags/IDE/"/>
     
   </entry>
   
   <entry>
     <title>Newtonsoft.Json使用总结</title>
-    <link href="http://jinyu.host/2022/08/16/Newtonsoft.Json%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/"/>
-    <id>http://jinyu.host/2022/08/16/Newtonsoft.Json%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</id>
+    <link href="https://jinyu.host/2022/08/16/Newtonsoft.Json%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/"/>
+    <id>https://jinyu.host/2022/08/16/Newtonsoft.Json%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</id>
     <published>2022-08-16T02:33:38.000Z</published>
     <updated>2022-08-16T02:33:38.000Z</updated>
     
@@ -91,29 +91,29 @@
     
     
     
-    <category term="编程" scheme="http://jinyu.host/categories/%E7%BC%96%E7%A8%8B/"/>
+    <category term="编程" scheme="https://jinyu.host/categories/%E7%BC%96%E7%A8%8B/"/>
     
-    <category term=".NET" scheme="http://jinyu.host/categories/%E7%BC%96%E7%A8%8B/NET/"/>
+    <category term=".NET" scheme="https://jinyu.host/categories/%E7%BC%96%E7%A8%8B/NET/"/>
     
-    <category term="C#" scheme="http://jinyu.host/categories/%E7%BC%96%E7%A8%8B/NET/C/"/>
+    <category term="C#" scheme="https://jinyu.host/categories/%E7%BC%96%E7%A8%8B/NET/C/"/>
     
-    <category term="第三方库" scheme="http://jinyu.host/categories/%E7%BC%96%E7%A8%8B/NET/C/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/"/>
+    <category term="第三方库" scheme="https://jinyu.host/categories/%E7%BC%96%E7%A8%8B/NET/C/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/"/>
     
     
-    <category term="编程" scheme="http://jinyu.host/tags/%E7%BC%96%E7%A8%8B/"/>
+    <category term="编程" scheme="https://jinyu.host/tags/%E7%BC%96%E7%A8%8B/"/>
     
-    <category term=".NET" scheme="http://jinyu.host/tags/NET/"/>
+    <category term=".NET" scheme="https://jinyu.host/tags/NET/"/>
     
-    <category term="C#" scheme="http://jinyu.host/tags/C/"/>
+    <category term="C#" scheme="https://jinyu.host/tags/C/"/>
     
-    <category term="第三方库" scheme="http://jinyu.host/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/"/>
+    <category term="第三方库" scheme="https://jinyu.host/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/"/>
     
   </entry>
   
   <entry>
     <title>并发编程锁之ReentrantLock总结</title>
-    <link href="http://jinyu.host/2020/09/06/23579483-7206-449c-aa75-14d135b74afd/"/>
-    <id>http://jinyu.host/2020/09/06/23579483-7206-449c-aa75-14d135b74afd/</id>
+    <link href="https://jinyu.host/2020/09/06/23579483-7206-449c-aa75-14d135b74afd/"/>
+    <id>https://jinyu.host/2020/09/06/23579483-7206-449c-aa75-14d135b74afd/</id>
     <published>2020-09-06T03:47:22.000Z</published>
     <updated>2020-09-06T03:47:22.000Z</updated>
     
@@ -127,23 +127,23 @@
     
     
     
-    <category term="学习日志" scheme="http://jinyu.host/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
+    <category term="学习日志" scheme="https://jinyu.host/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
     
     
-    <category term="Java" scheme="http://jinyu.host/tags/Java/"/>
+    <category term="Java" scheme="https://jinyu.host/tags/Java/"/>
     
-    <category term="锁" scheme="http://jinyu.host/tags/%E9%94%81/"/>
+    <category term="锁" scheme="https://jinyu.host/tags/%E9%94%81/"/>
     
-    <category term="并发" scheme="http://jinyu.host/tags/%E5%B9%B6%E5%8F%91/"/>
+    <category term="并发" scheme="https://jinyu.host/tags/%E5%B9%B6%E5%8F%91/"/>
     
-    <category term="多线程" scheme="http://jinyu.host/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    <category term="多线程" scheme="https://jinyu.host/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title>并发编程锁之synchronized总结</title>
-    <link href="http://jinyu.host/2020/09/02/afd8c681-d4f8-4655-bafa-4a958d92d4df/"/>
-    <id>http://jinyu.host/2020/09/02/afd8c681-d4f8-4655-bafa-4a958d92d4df/</id>
+    <link href="https://jinyu.host/2020/09/02/afd8c681-d4f8-4655-bafa-4a958d92d4df/"/>
+    <id>https://jinyu.host/2020/09/02/afd8c681-d4f8-4655-bafa-4a958d92d4df/</id>
     <published>2020-09-01T23:03:02.000Z</published>
     <updated>2020-09-01T23:06:09.000Z</updated>
     
@@ -157,23 +157,23 @@
     
     
     
-    <category term="学习日志" scheme="http://jinyu.host/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
+    <category term="学习日志" scheme="https://jinyu.host/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
     
     
-    <category term="Java" scheme="http://jinyu.host/tags/Java/"/>
+    <category term="Java" scheme="https://jinyu.host/tags/Java/"/>
     
-    <category term="锁" scheme="http://jinyu.host/tags/%E9%94%81/"/>
+    <category term="锁" scheme="https://jinyu.host/tags/%E9%94%81/"/>
     
-    <category term="并发" scheme="http://jinyu.host/tags/%E5%B9%B6%E5%8F%91/"/>
+    <category term="并发" scheme="https://jinyu.host/tags/%E5%B9%B6%E5%8F%91/"/>
     
-    <category term="多线程" scheme="http://jinyu.host/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    <category term="多线程" scheme="https://jinyu.host/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title>Windows部署minio注册成服务在后台保持运行</title>
-    <link href="http://jinyu.host/2020/08/29/22b43cc2-387b-4368-9c70-50044bac3d50/"/>
-    <id>http://jinyu.host/2020/08/29/22b43cc2-387b-4368-9c70-50044bac3d50/</id>
+    <link href="https://jinyu.host/2020/08/29/22b43cc2-387b-4368-9c70-50044bac3d50/"/>
+    <id>https://jinyu.host/2020/08/29/22b43cc2-387b-4368-9c70-50044bac3d50/</id>
     <published>2020-08-29T00:23:16.000Z</published>
     <updated>2020-08-29T00:23:16.000Z</updated>
     
@@ -187,19 +187,19 @@
     
     
     
-    <category term="学习日志" scheme="http://jinyu.host/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
+    <category term="学习日志" scheme="https://jinyu.host/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
     
     
-    <category term="Minio" scheme="http://jinyu.host/tags/Minio/"/>
+    <category term="Minio" scheme="https://jinyu.host/tags/Minio/"/>
     
-    <category term="Windows" scheme="http://jinyu.host/tags/Windows/"/>
+    <category term="Windows" scheme="https://jinyu.host/tags/Windows/"/>
     
   </entry>
   
   <entry>
     <title>The username you provided is not allowed to use the text-based Tomcat Manager (error 403)</title>
-    <link href="http://jinyu.host/2020/08/29/3da6888a-b6ff-4cc7-a3cf-e40efbb943d5/"/>
-    <id>http://jinyu.host/2020/08/29/3da6888a-b6ff-4cc7-a3cf-e40efbb943d5/</id>
+    <link href="https://jinyu.host/2020/08/29/3da6888a-b6ff-4cc7-a3cf-e40efbb943d5/"/>
+    <id>https://jinyu.host/2020/08/29/3da6888a-b6ff-4cc7-a3cf-e40efbb943d5/</id>
     <published>2020-08-29T00:16:49.000Z</published>
     <updated>2020-08-29T00:16:49.000Z</updated>
     
@@ -213,19 +213,19 @@
     
     
     
-    <category term="错误日志" scheme="http://jinyu.host/categories/%E9%94%99%E8%AF%AF%E6%97%A5%E5%BF%97/"/>
+    <category term="错误日志" scheme="https://jinyu.host/categories/%E9%94%99%E8%AF%AF%E6%97%A5%E5%BF%97/"/>
     
     
-    <category term="Tomcat" scheme="http://jinyu.host/tags/Tomcat/"/>
+    <category term="Tomcat" scheme="https://jinyu.host/tags/Tomcat/"/>
     
-    <category term="Jenkins" scheme="http://jinyu.host/tags/Jenkins/"/>
+    <category term="Jenkins" scheme="https://jinyu.host/tags/Jenkins/"/>
     
   </entry>
   
   <entry>
     <title>Build step &#39;Invoke top-level Maven targets&#39; marked build as failure Finished</title>
-    <link href="http://jinyu.host/2020/08/29/c49478bb-79a0-4a4c-91b4-fca9116bdfcd/"/>
-    <id>http://jinyu.host/2020/08/29/c49478bb-79a0-4a4c-91b4-fca9116bdfcd/</id>
+    <link href="https://jinyu.host/2020/08/29/c49478bb-79a0-4a4c-91b4-fca9116bdfcd/"/>
+    <id>https://jinyu.host/2020/08/29/c49478bb-79a0-4a4c-91b4-fca9116bdfcd/</id>
     <published>2020-08-29T00:03:11.000Z</published>
     <updated>2020-08-29T00:03:11.000Z</updated>
     
@@ -239,21 +239,21 @@
     
     
     
-    <category term="错误日志" scheme="http://jinyu.host/categories/%E9%94%99%E8%AF%AF%E6%97%A5%E5%BF%97/"/>
+    <category term="错误日志" scheme="https://jinyu.host/categories/%E9%94%99%E8%AF%AF%E6%97%A5%E5%BF%97/"/>
     
     
-    <category term="Linux" scheme="http://jinyu.host/tags/Linux/"/>
+    <category term="Linux" scheme="https://jinyu.host/tags/Linux/"/>
     
-    <category term="Jenkins" scheme="http://jinyu.host/tags/Jenkins/"/>
+    <category term="Jenkins" scheme="https://jinyu.host/tags/Jenkins/"/>
     
-    <category term="Maven" scheme="http://jinyu.host/tags/Maven/"/>
+    <category term="Maven" scheme="https://jinyu.host/tags/Maven/"/>
     
   </entry>
   
   <entry>
     <title>Jenkins + Gitee搭建持续集成环境</title>
-    <link href="http://jinyu.host/2020/08/29/76a9a626-f1df-4341-8f60-56f760ddd3fd/"/>
-    <id>http://jinyu.host/2020/08/29/76a9a626-f1df-4341-8f60-56f760ddd3fd/</id>
+    <link href="https://jinyu.host/2020/08/29/76a9a626-f1df-4341-8f60-56f760ddd3fd/"/>
+    <id>https://jinyu.host/2020/08/29/76a9a626-f1df-4341-8f60-56f760ddd3fd/</id>
     <published>2020-08-28T21:33:05.000Z</published>
     <updated>2020-08-28T21:33:05.000Z</updated>
     
@@ -267,19 +267,19 @@
     
     
     
-    <category term="学习日志" scheme="http://jinyu.host/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
+    <category term="学习日志" scheme="https://jinyu.host/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
     
     
-    <category term="Linux" scheme="http://jinyu.host/tags/Linux/"/>
+    <category term="Linux" scheme="https://jinyu.host/tags/Linux/"/>
     
-    <category term="Jenkins" scheme="http://jinyu.host/tags/Jenkins/"/>
+    <category term="Jenkins" scheme="https://jinyu.host/tags/Jenkins/"/>
     
   </entry>
   
   <entry>
     <title>vim永久显示行号</title>
-    <link href="http://jinyu.host/2020/08/28/44145d69-cff6-4517-adcc-a1e206614c4f/"/>
-    <id>http://jinyu.host/2020/08/28/44145d69-cff6-4517-adcc-a1e206614c4f/</id>
+    <link href="https://jinyu.host/2020/08/28/44145d69-cff6-4517-adcc-a1e206614c4f/"/>
+    <id>https://jinyu.host/2020/08/28/44145d69-cff6-4517-adcc-a1e206614c4f/</id>
     <published>2020-08-28T03:44:55.000Z</published>
     <updated>2020-08-28T03:44:55.000Z</updated>
     
@@ -293,19 +293,19 @@
     
     
     
-    <category term="学习日志" scheme="http://jinyu.host/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
+    <category term="学习日志" scheme="https://jinyu.host/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
     
     
-    <category term="Linux" scheme="http://jinyu.host/tags/Linux/"/>
+    <category term="Linux" scheme="https://jinyu.host/tags/Linux/"/>
     
-    <category term="vim" scheme="http://jinyu.host/tags/vim/"/>
+    <category term="vim" scheme="https://jinyu.host/tags/vim/"/>
     
   </entry>
   
   <entry>
     <title>Docker安装Minio存储服务器</title>
-    <link href="http://jinyu.host/2020/08/28/09a7931e-a93b-47d2-a861-b15156bd132f/"/>
-    <id>http://jinyu.host/2020/08/28/09a7931e-a93b-47d2-a861-b15156bd132f/</id>
+    <link href="https://jinyu.host/2020/08/28/09a7931e-a93b-47d2-a861-b15156bd132f/"/>
+    <id>https://jinyu.host/2020/08/28/09a7931e-a93b-47d2-a861-b15156bd132f/</id>
     <published>2020-08-28T03:40:14.000Z</published>
     <updated>2020-08-28T03:40:43.000Z</updated>
     
@@ -319,21 +319,21 @@
     
     
     
-    <category term="Docker部署App" scheme="http://jinyu.host/categories/Docker%E9%83%A8%E7%BD%B2App/"/>
+    <category term="Docker部署App" scheme="https://jinyu.host/categories/Docker%E9%83%A8%E7%BD%B2App/"/>
     
     
-    <category term="Linux" scheme="http://jinyu.host/tags/Linux/"/>
+    <category term="Linux" scheme="https://jinyu.host/tags/Linux/"/>
     
-    <category term="Docker" scheme="http://jinyu.host/tags/Docker/"/>
+    <category term="Docker" scheme="https://jinyu.host/tags/Docker/"/>
     
-    <category term="Minio" scheme="http://jinyu.host/tags/Minio/"/>
+    <category term="Minio" scheme="https://jinyu.host/tags/Minio/"/>
     
   </entry>
   
   <entry>
     <title>Docker部署Nacos-Server(单机版)</title>
-    <link href="http://jinyu.host/2020/08/28/c23b6d6f-7386-4c4b-ad02-cc30b5f54f14/"/>
-    <id>http://jinyu.host/2020/08/28/c23b6d6f-7386-4c4b-ad02-cc30b5f54f14/</id>
+    <link href="https://jinyu.host/2020/08/28/c23b6d6f-7386-4c4b-ad02-cc30b5f54f14/"/>
+    <id>https://jinyu.host/2020/08/28/c23b6d6f-7386-4c4b-ad02-cc30b5f54f14/</id>
     <published>2020-08-28T02:23:23.000Z</published>
     <updated>2020-08-28T02:43:56.000Z</updated>
     
@@ -347,21 +347,21 @@
     
     
     
-    <category term="Docker部署App" scheme="http://jinyu.host/categories/Docker%E9%83%A8%E7%BD%B2App/"/>
+    <category term="Docker部署App" scheme="https://jinyu.host/categories/Docker%E9%83%A8%E7%BD%B2App/"/>
     
     
-    <category term="Linux" scheme="http://jinyu.host/tags/Linux/"/>
+    <category term="Linux" scheme="https://jinyu.host/tags/Linux/"/>
     
-    <category term="Docker" scheme="http://jinyu.host/tags/Docker/"/>
+    <category term="Docker" scheme="https://jinyu.host/tags/Docker/"/>
     
-    <category term="Nacos" scheme="http://jinyu.host/tags/Nacos/"/>
+    <category term="Nacos" scheme="https://jinyu.host/tags/Nacos/"/>
     
   </entry>
   
   <entry>
     <title>使用js美化Markdown文档</title>
-    <link href="http://jinyu.host/2020/08/28/7f6f748b-2b84-4ff0-b369-55169f13911e/"/>
-    <id>http://jinyu.host/2020/08/28/7f6f748b-2b84-4ff0-b369-55169f13911e/</id>
+    <link href="https://jinyu.host/2020/08/28/7f6f748b-2b84-4ff0-b369-55169f13911e/"/>
+    <id>https://jinyu.host/2020/08/28/7f6f748b-2b84-4ff0-b369-55169f13911e/</id>
     <published>2020-08-28T00:43:18.000Z</published>
     <updated>2020-08-28T00:43:18.000Z</updated>
     
@@ -375,17 +375,17 @@
     
     
     
-    <category term="学习日志" scheme="http://jinyu.host/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
+    <category term="学习日志" scheme="https://jinyu.host/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
     
     
-    <category term="Markdown" scheme="http://jinyu.host/tags/Markdown/"/>
+    <category term="Markdown" scheme="https://jinyu.host/tags/Markdown/"/>
     
   </entry>
   
   <entry>
     <title>CentOS7安装zsh配置oh-my-zsh</title>
-    <link href="http://jinyu.host/2020/08/28/98f43741-13b2-4b4c-8ea1-16da41826cc0/"/>
-    <id>http://jinyu.host/2020/08/28/98f43741-13b2-4b4c-8ea1-16da41826cc0/</id>
+    <link href="https://jinyu.host/2020/08/28/98f43741-13b2-4b4c-8ea1-16da41826cc0/"/>
+    <id>https://jinyu.host/2020/08/28/98f43741-13b2-4b4c-8ea1-16da41826cc0/</id>
     <published>2020-08-28T00:25:10.000Z</published>
     <updated>2020-08-28T00:25:10.000Z</updated>
     
@@ -399,19 +399,19 @@
     
     
     
-    <category term="学习日志" scheme="http://jinyu.host/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
+    <category term="学习日志" scheme="https://jinyu.host/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
     
     
-    <category term="Linux" scheme="http://jinyu.host/tags/Linux/"/>
+    <category term="Linux" scheme="https://jinyu.host/tags/Linux/"/>
     
-    <category term="zsh" scheme="http://jinyu.host/tags/zsh/"/>
+    <category term="zsh" scheme="https://jinyu.host/tags/zsh/"/>
     
   </entry>
   
   <entry>
     <title>Tomcat访问路径去掉项目名</title>
-    <link href="http://jinyu.host/2020/08/26/6af2baee-79c4-4f16-9e51-ca4a087f94b6/"/>
-    <id>http://jinyu.host/2020/08/26/6af2baee-79c4-4f16-9e51-ca4a087f94b6/</id>
+    <link href="https://jinyu.host/2020/08/26/6af2baee-79c4-4f16-9e51-ca4a087f94b6/"/>
+    <id>https://jinyu.host/2020/08/26/6af2baee-79c4-4f16-9e51-ca4a087f94b6/</id>
     <published>2020-08-25T20:30:19.000Z</published>
     <updated>2020-08-25T20:30:19.000Z</updated>
     
@@ -425,19 +425,19 @@
     
     
     
-    <category term="学习日志" scheme="http://jinyu.host/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
+    <category term="学习日志" scheme="https://jinyu.host/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
     
     
-    <category term="Linux" scheme="http://jinyu.host/tags/Linux/"/>
+    <category term="Linux" scheme="https://jinyu.host/tags/Linux/"/>
     
-    <category term="Tomcat" scheme="http://jinyu.host/tags/Tomcat/"/>
+    <category term="Tomcat" scheme="https://jinyu.host/tags/Tomcat/"/>
     
   </entry>
   
   <entry>
     <title>Linux修改hosts</title>
-    <link href="http://jinyu.host/2020/08/23/c0a480fa-50af-4262-bc0d-a3ef51f36625/"/>
-    <id>http://jinyu.host/2020/08/23/c0a480fa-50af-4262-bc0d-a3ef51f36625/</id>
+    <link href="https://jinyu.host/2020/08/23/c0a480fa-50af-4262-bc0d-a3ef51f36625/"/>
+    <id>https://jinyu.host/2020/08/23/c0a480fa-50af-4262-bc0d-a3ef51f36625/</id>
     <published>2020-08-23T02:35:37.000Z</published>
     <updated>2020-08-23T02:35:37.000Z</updated>
     
@@ -451,17 +451,17 @@
     
     
     
-    <category term="学习日志" scheme="http://jinyu.host/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
+    <category term="学习日志" scheme="https://jinyu.host/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
     
     
-    <category term="Linux" scheme="http://jinyu.host/tags/Linux/"/>
+    <category term="Linux" scheme="https://jinyu.host/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>Linux开机自启应用</title>
-    <link href="http://jinyu.host/2020/08/23/9f4e62c2-0112-429f-91c3-80b33e0d8586/"/>
-    <id>http://jinyu.host/2020/08/23/9f4e62c2-0112-429f-91c3-80b33e0d8586/</id>
+    <link href="https://jinyu.host/2020/08/23/9f4e62c2-0112-429f-91c3-80b33e0d8586/"/>
+    <id>https://jinyu.host/2020/08/23/9f4e62c2-0112-429f-91c3-80b33e0d8586/</id>
     <published>2020-08-23T01:46:03.000Z</published>
     <updated>2020-08-23T01:46:03.000Z</updated>
     
@@ -475,19 +475,19 @@
     
     
     
-    <category term="学习日志" scheme="http://jinyu.host/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
+    <category term="学习日志" scheme="https://jinyu.host/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
     
     
-    <category term="Linux" scheme="http://jinyu.host/tags/Linux/"/>
+    <category term="Linux" scheme="https://jinyu.host/tags/Linux/"/>
     
-    <category term="Tomcat" scheme="http://jinyu.host/tags/Tomcat/"/>
+    <category term="Tomcat" scheme="https://jinyu.host/tags/Tomcat/"/>
     
   </entry>
   
   <entry>
     <title>docker logs－查看docker容器日志</title>
-    <link href="http://jinyu.host/2020/08/23/6ad8c6b0-7ee9-4b8f-9cfe-d422a0e2e0d0/"/>
-    <id>http://jinyu.host/2020/08/23/6ad8c6b0-7ee9-4b8f-9cfe-d422a0e2e0d0/</id>
+    <link href="https://jinyu.host/2020/08/23/6ad8c6b0-7ee9-4b8f-9cfe-d422a0e2e0d0/"/>
+    <id>https://jinyu.host/2020/08/23/6ad8c6b0-7ee9-4b8f-9cfe-d422a0e2e0d0/</id>
     <published>2020-08-22T21:26:17.000Z</published>
     <updated>2020-08-22T21:26:17.000Z</updated>
     
@@ -501,19 +501,19 @@
     
     
     
-    <category term="学习日志" scheme="http://jinyu.host/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
+    <category term="学习日志" scheme="https://jinyu.host/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
     
     
-    <category term="Linux" scheme="http://jinyu.host/tags/Linux/"/>
+    <category term="Linux" scheme="https://jinyu.host/tags/Linux/"/>
     
-    <category term="Docker" scheme="http://jinyu.host/tags/Docker/"/>
+    <category term="Docker" scheme="https://jinyu.host/tags/Docker/"/>
     
   </entry>
   
   <entry>
     <title>[ERR] 1273 - Unknown collation: &#39;utf8mb4_0900_ai_ci&#39;</title>
-    <link href="http://jinyu.host/2020/08/20/dc1110f2-bfd5-46b3-96b5-6ff2d30291a8/"/>
-    <id>http://jinyu.host/2020/08/20/dc1110f2-bfd5-46b3-96b5-6ff2d30291a8/</id>
+    <link href="https://jinyu.host/2020/08/20/dc1110f2-bfd5-46b3-96b5-6ff2d30291a8/"/>
+    <id>https://jinyu.host/2020/08/20/dc1110f2-bfd5-46b3-96b5-6ff2d30291a8/</id>
     <published>2020-08-20T03:42:43.000Z</published>
     <updated>2020-08-21T02:34:19.000Z</updated>
     
@@ -527,19 +527,19 @@
     
     
     
-    <category term="错误日志" scheme="http://jinyu.host/categories/%E9%94%99%E8%AF%AF%E6%97%A5%E5%BF%97/"/>
+    <category term="错误日志" scheme="https://jinyu.host/categories/%E9%94%99%E8%AF%AF%E6%97%A5%E5%BF%97/"/>
     
     
-    <category term="MySQL" scheme="http://jinyu.host/tags/MySQL/"/>
+    <category term="MySQL" scheme="https://jinyu.host/tags/MySQL/"/>
     
-    <category term="Navicat" scheme="http://jinyu.host/tags/Navicat/"/>
+    <category term="Navicat" scheme="https://jinyu.host/tags/Navicat/"/>
     
   </entry>
   
   <entry>
     <title>Redlock（redis分布式锁）原理分析</title>
-    <link href="http://jinyu.host/2020/08/20/28b38cee-8734-4732-8de7-47f9f99b3f13/"/>
-    <id>http://jinyu.host/2020/08/20/28b38cee-8734-4732-8de7-47f9f99b3f13/</id>
+    <link href="https://jinyu.host/2020/08/20/28b38cee-8734-4732-8de7-47f9f99b3f13/"/>
+    <id>https://jinyu.host/2020/08/20/28b38cee-8734-4732-8de7-47f9f99b3f13/</id>
     <published>2020-08-19T21:24:20.000Z</published>
     <updated>2020-08-19T21:24:20.000Z</updated>
     
@@ -553,10 +553,10 @@
     
     
     
-    <category term="学习日志" scheme="http://jinyu.host/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
+    <category term="学习日志" scheme="https://jinyu.host/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
     
     
-    <category term="Redis" scheme="http://jinyu.host/tags/Redis/"/>
+    <category term="Redis" scheme="https://jinyu.host/tags/Redis/"/>
     
   </entry>
   
