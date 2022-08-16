@@ -4,6 +4,103 @@
   
     
     <entry>
+      <title>CRON表达式</title>
+      <link href="/2022/08/16/CRON%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+      <url>/2022/08/16/CRON%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>CRON表达式是一个具有时间意义的字符串，具有6个域来分别表示：秒、分、时、天、月、周。<br>每个域可以取确定值和具有逻辑意义的特殊字符，确定值可以使用’,’分割。</p><h1 id="域"><a href="#域" class="headerlink" title="域"></a>域</h1><div class="table-container"><table><thead><tr><th style="text-align:left">域</th><th style="text-align:left">取值范围</th><th style="text-align:left">特殊字符</th></tr></thead><tbody><tr><td style="text-align:left">秒</td><td style="text-align:left">[0, 59]</td><td style="text-align:left">* , - /</td></tr><tr><td style="text-align:left">分钟</td><td style="text-align:left">[0, 59]</td><td style="text-align:left">* , - /</td></tr><tr><td style="text-align:left">小时</td><td style="text-align:left">[0, 23]</td><td style="text-align:left">* , - /</td></tr><tr><td style="text-align:left">日</td><td style="text-align:left">[1, 31]</td><td style="text-align:left">* , - / ? L W</td></tr><tr><td style="text-align:left">月</td><td style="text-align:left">[1, 12] / [JAN, DEC]</td><td style="text-align:left">* , - /</td></tr><tr><td style="text-align:left">周</td><td style="text-align:left">[1, 7] / [MON, SUN]</td><td style="text-align:left">* , - / ? L #</td></tr></tbody></table></div><h1 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h1><div class="table-container"><table><thead><tr><th style="text-align:left">特殊字符</th><th style="text-align:left">含义</th><th style="text-align:left">例子</th></tr></thead><tbody><tr><td style="text-align:left">*</td><td style="text-align:left">任意值</td><td style="text-align:left">在周域中，<em>指某周中的每一天；在月域中，</em>指每个月</td></tr><tr><td style="text-align:left">,</td><td style="text-align:left">枚举值列表分隔符</td><td style="text-align:left">在分钟域中，1,3,5表示在某个小时中，第1,3,5分钟分别执行一次</td></tr><tr><td style="text-align:left">-</td><td style="text-align:left">范围</td><td style="text-align:left">在分钟域中，20-30表示在某个小时中，在20-30分钟里，每分钟执行一次</td></tr><tr><td style="text-align:left">/</td><td style="text-align:left">指定值的增量</td><td style="text-align:left">在分钟域中，10/15表示在某个小时中，在第10分钟开始，每15分钟执行一次</td></tr><tr><td style="text-align:left">?</td><td style="text-align:left">不定值</td><td style="text-align:left">日和周域在其中一个指定值后，另一个需要设置为?</td></tr><tr><td style="text-align:left">L</td><td style="text-align:left">last，最后一天，仅日和周可用</td><td style="text-align:left">在周域中，L表示某个周的最后一天<br>在日域中，L表示某个月的最后一天<br>在周域中，6L表示某个月的最后一个周六</td></tr><tr><td style="text-align:left">W</td><td style="text-align:left">weekday，工作日，不会跨月</td><td style="text-align:left">在日域中，5W指某月的第5天<br>若5W是周六，则在第4天，即周五执行<br>若5W是周日，则在第6天，即周一执行<br>若5W是工作日，则在5W执行</td></tr><tr><td style="text-align:left">#</td><td style="text-align:left">指定某月的第几个周几，仅周可用</td><td style="text-align:left">在周域中，4#2表示某个月的第2个周四</td></tr></tbody></table></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+          <category> 基础知识 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 编程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>IntelliJ IDEA快捷键</title>
+      <link href="/2022/08/16/IntelliJ%20IDEA%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+      <url>/2022/08/16/IntelliJ%20IDEA%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="table-container"><table><thead><tr><th style="text-align:left">操作</th><th style="text-align:left">快捷键</th></tr></thead><tbody><tr><td style="text-align:left">书签</td><td style="text-align:left"><kbd>Ctrl</kbd> + <kbd>F11</kbd></td></tr><tr><td style="text-align:left">返回</td><td style="text-align:left"><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>←</kbd></td></tr><tr><td style="text-align:left">展示类结构</td><td style="text-align:left"><kbd>Ctrl</kbd> + <kbd>F12</kbd></td></tr><tr><td style="text-align:left">在资源管理器中打开</td><td style="text-align:left"><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>F12</kbd></td></tr><tr><td style="text-align:left">最近编辑文件列表</td><td style="text-align:left"><kbd>Ctrl</kbd> + <kbd>E</kbd></td></tr><tr><td style="text-align:left">定位行</td><td style="text-align:left"><kbd>Ctrl</kbd> + <kbd>G</kbd></td></tr><tr><td style="text-align:left">转去定义</td><td style="text-align:left"><kbd>Ctrl</kbd> + <kbd>B</kbd> / <kbd>Ctrl</kbd> + <kbd>鼠标左键</kbd></td></tr><tr><td style="text-align:left">查找引用</td><td style="text-align:left"><kbd>Alt</kbd> + <kbd>F7</kbd></td></tr><tr><td style="text-align:left">定位下一个错误</td><td style="text-align:left"><kbd>F2</kbd></td></tr><tr><td style="text-align:left">重命名</td><td style="text-align:left"><kbd>Shift</kbd> + <kbd>F6</kbd></td></tr></tbody></table></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+          <category> Java </category>
+          
+          <category> IDE </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> 编程 </tag>
+            
+            <tag> IDE </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Newtonsoft.Json使用总结</title>
+      <link href="/2022/08/16/Newtonsoft.Json%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/"/>
+      <url>/2022/08/16/Newtonsoft.Json%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><blockquote><p>Json.NET is a popular high-performance JSON framework for .NET</p></blockquote><div class="tag link"><a class="link-card" title="github地址" href="https://github.com/JamesNK/Newtonsoft.Json"><div class="left"><img src="https://github.com/favicon.ico"/></div><div class="right"><p class="text">github地址</p></div></a></div><div class="tag link"><a class="link-card" title="官网" href="https://www.newtonsoft.com/json"><div class="left"><img src="https://www.newtonsoft.com/favicon.ico"/></div><div class="right"><p class="text">官网</p></div></a></div><h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><p>可以在官网或github仓库查看详细文档。在ide中使用时，无需下载代码，在nuget包管理器中搜索即可，或直接<code>using Newtonsoft.Json;</code>，再使用<kbd>Alt</kbd> + <kbd>Enter</kbd>智能引用</p><h1 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h1><p>简单用法：<br><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JsonConvert.SerializeObject(<span class="built_in">object</span>? <span class="keyword">value</span>);</span><br></pre></td></tr></table></figure></p><p>可以创建扩展类方便使用：<br><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title">NewtonsoftJsonExtension</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">string</span> <span class="title">ToJson</span>(<span class="params"><span class="keyword">this</span> <span class="built_in">object</span>? <span class="keyword">value</span></span>)</span> =&gt; JsonConvert.SerializeObject(<span class="keyword">value</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h1 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h1><p>简单用法：<br><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JsonConvert.DeserializeObject&lt;T&gt;(<span class="built_in">string</span> <span class="keyword">value</span>);</span><br></pre></td></tr></table></figure></p><p>可以创建扩展类方便使用：<br><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title">NewtonsoftJsonExtension</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> T? FromJsonToObj&lt;T&gt;(<span class="keyword">this</span> <span class="built_in">string</span> <span class="keyword">value</span>) =&gt; JsonConvert.DeserializeObject&lt;T&gt;(<span class="keyword">value</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h1 id="返回Json时日期格式化"><a href="#返回Json时日期格式化" class="headerlink" title="返回Json时日期格式化"></a>返回Json时日期格式化</h1><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>dto类中的属性：<br><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 版本生效年月，格式为yyyy-MM</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 例：&quot;2021-11&quot;</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">[<span class="meta">DataMember(Name = <span class="string">&quot;effectivePeriod&quot;</span>)</span>]</span><br><span class="line">[<span class="meta">JsonProperty(<span class="string">&quot;effectivePeriod&quot;</span>)</span>]</span><br><span class="line">[<span class="meta">JsonConverter(typeof(ResponseDateFormatter.YearMonth))</span>]</span><br><span class="line"><span class="keyword">public</span> DateTime EffectivePeriod &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br></pre></td></tr></table></figure></p><p>日期格式化类：<br><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 返回日期格式化类</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title">ResponseDateFormatter</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> yyyy-MM</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">YearMonth</span> : <span class="title">IsoDateTimeConverter</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">YearMonth</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            DateTimeFormat = <span class="string">&quot;yyyy-MM&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>通过继承<code>IsoDateTimeConverter</code>，然后在<code>ctor</code>中对<code>DateTimeFormat</code>属性赋值格式化字符串，之后可以在序列化时需要格式化的<code>DateTime</code>类型的属性上加上<code>[JsonConverter()]</code>特性，参数为<code>typeof(继承类)</code></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+          <category> .NET </category>
+          
+          <category> C# </category>
+          
+          <category> 第三方库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 编程 </tag>
+            
+            <tag> .NET </tag>
+            
+            <tag> C# </tag>
+            
+            <tag> 第三方库 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>并发编程锁之ReentrantLock总结</title>
       <link href="/2020/09/06/23579483-7206-449c-aa75-14d135b74afd/"/>
       <url>/2020/09/06/23579483-7206-449c-aa75-14d135b74afd/</url>
@@ -1374,11 +1471,11 @@
             
             <tag> Linux </tag>
             
+            <tag> CentOS7 </tag>
+            
             <tag> Redis </tag>
             
             <tag> VMware </tag>
-            
-            <tag> CentOS7 </tag>
             
         </tags>
       
